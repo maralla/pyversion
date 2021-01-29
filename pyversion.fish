@@ -8,7 +8,7 @@ function __pyversion__versions
     set -l tmpfile (mktemp /tmp/pyversion-XXXXXX)
 
     curl -sS "https://www.python.org/ftp/python/" -o $tmpfile
-    sed -E -e 's|.*>([0-9]+\.[0-9]+(\.[0-9]+)?)/<.*|\1|;/[a-w]/d' $tmpfile | sort
+    sed -E -e 's|.*>([0-9]+\.[0-9]+(\.[0-9]+)?)/<.*|\1|;/[a-w]/d' $tmpfile | sort -V
 
     rm "$tmpfile"
 end
